@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reg.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <section class="h-100 bg-dark">
+        <div class="container py-5 h-100 h-100 bg-dark">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col">
+                    <div class=" " style="color: white;" >
+                        <div class="row g-0 ">
+                            
+                            <div class="col-xl-6">
+                                <div class="card-body text-black">
+                                    <h3 class="mb-5 text-uppercase"> registration form</h3>
+    
+                                    <div class="row">
+                                        <div class="col-6 mb-4">
+                                            <div class="form-outline">
+                                                <input type="text" id="fnm"
+                                                    class="form-control form-control-lg" required/>
+                                                <label class="form-label" for="form3Example1m">First name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                <input type="text" id="lnm"
+                                                    class="form-control form-control-lg" required/>
+                                                <label class="form-label" for="form3Example1n">Last name</label>
+                                            </div>
+                                        </div>
+                                    </div>
+    
+    
+                                    <div class="form-outline mb-4">
+                                        <input type="text" id="add" class="form-control form-control-lg" required />
+                                        <label class="form-label" for="form3Example8">Address</label>
+                                    </div>
+      <label for="cars">Gender</label>
+                                            <select id="gen" name="gender" required>
+                                              <option value="Male">Male</option>
+                                              <option value="Female">Female</option>
+                                              <option value="Others">Others</option>
+                                             
+                                            </select>
+                                           
+    
+                                    </div>
+    
+
+                                    <div class="form-outline mb-4">
+                                        <input type="date" id="dob" class="form-control form-control-lg" required/>
+                                        <label class="form-label" for="form3Example9">DOB</label>
+                                    </div>
+    
+                                    <div class="form-outline mb-4">
+                                        <input type="text" id="Pincode" class="form-control form-control-lg" required/>
+                                        <label class="form-label" for="form3Example90">Pincode</label>
+                                    </div>
+    
+                                    
+    
+                                    <div class="form-outline mb-4">
+                                        <input type="text" id="re" class="form-control form-control-lg" required/>
+                                        <label class="form-label" for="form3Example97">Email ID</label>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                <input type="password" id="rp"
+                                                    class="form-control form-control-lg" required/>
+                                                <label class="form-label" for="form3Example1m">Password</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                <input type="password" id="form3Example1n"
+                                                    class="form-control form-control-lg" required/>
+                                                <label class="form-label" for="rrp">Conform Password</label>
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                    <div class="d-flex justify-content-end pt-3">
+                                        <button type="button" class="btn btn-light btn-lg">Reset all</button>
+                                        <button type="button" class="btn btn-warning btn-lg ms-2" onClick="register()">Submit form</button>
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script>
+    var emailArray=[];
+       var passwordArray=[];
+   function register(){
+           event.preventDefault();
+           var fname = document.getElementById("fnm").value;
+           var lname = document.getElementById("lnm").value;
+           var address = document.getElementById("add").value;
+           var email = document.getElementById("re").value;
+           var dob = document.getElementById("dob").value;
+           var password = document.getElementById("rp").value;
+           var passwordRetype = document.getElementById("rrp").value;
+           
+        console.log("fgh")
+           if (fname == ""){
+               alert("frst name required.");
+               return ;
+           }
+           else if (fname == ""){
+               alert("last name required.");
+               return ;
+           }
+          
+            else if(phone = ""){
+                alert("Phone number required")
+            }
+            else if (email == ""){
+                alert("Email required.");
+                return ;
+            }
+            
+            else if (password == ""){
+                alert("Password required.");
+                return ;
+            }
+            else if (passwordRetype == ""){
+                alert("Password required.");
+                return ;
+            }
+            else if ( password != passwordRetype ){
+                alert("Password don't match retype your Password.");
+                return;
+            }
+            else if(emailArray.indexOf(email) == -1){
+                emailArray.push(email);
+                passwordArray.push(password);
+
+                alert(email + "  Thanks for registration. \nTry to login Now");
+
+                document.getElementById("re").value ="";
+                document.getElementById("rp").value="";
+                document.getElementById("rrp").value="";
+            }
+            else{
+                alert(email + " is already register.");
+                return ;
+            }
+        }
+</script>
+
+</html>
